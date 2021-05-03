@@ -1,0 +1,6 @@
+framework module Pods_TennisistApp {
+  umbrella header "Pods-TennisistApp-umbrella.h"
+
+  export *
+  module * { export * }
+}
