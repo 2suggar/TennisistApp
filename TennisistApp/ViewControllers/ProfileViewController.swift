@@ -8,17 +8,17 @@
 import UIKit
 import SnapKit
 
-fileprivate enum TableSectionsKind {
-    case profileInfo
-    case mainInfo
-    case connection
-    case reviews
-    case students
-}
-
-class ProfileViewController: UIViewController {
+class ProfileView: UIView {
     
     // MARK: Private variables
+    
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 28/255.0, green: 28/255.0, blue: 30/255.0, alpha: 1)
+        view.layer.cornerRadius = 34
+        return view
+    }()
+    
     private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.layer.cornerRadius = 89
@@ -31,19 +31,23 @@ class ProfileViewController: UIViewController {
     
     private let tableView = UITableView(frame: .zero, style: .grouped)
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 
     // MARK: Private functions
     private func setupUI() {
-        view.backgroundColor = UIColor(red: 28/255.0, green: 28/255.0, blue: 30/255.0, alpha: 1)
-        view.layer.cornerRadius = 34
+        isUserInteractionEnabled = true
         
-        view.addSubview(avatarImageView)
-        view.addSubview(tennisBallView)
-        view.addSubview(tableView)
+        addSubview(backgroundView)
+        addSubview(avatarImageView)
+        addSubview(tennisBallView)
+        addSubview(tableView)
         
         setupTableView()
         setupConstraints()
@@ -55,6 +59,9 @@ class ProfileViewController: UIViewController {
         tableView.backgroundColor = .clear
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.isScrollEnabled = false
+        
+        tableView.isUserInteractionEnabled = true
         
         tableView.register(ProfileCell.self, forCellReuseIdentifier: cellIdentifier(forSection: 0))
         tableView.register(MainInfoCell.self, forCellReuseIdentifier: cellIdentifier(forSection: 1))
@@ -67,10 +74,15 @@ class ProfileViewController: UIViewController {
     }
     
     private func setupConstraints() {
+        backgroundView.snp.makeConstraints { make in
+            make.top.equalTo(avatarImageView.snp.centerY)
+            make.left.right.bottom.equalToSuperview()
+        }
+        
         avatarImageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalTo(view.snp.top)
             make.size.equalTo(178)
+            make.top.equalToSuperview()
         }
         
         tennisBallView.snp.makeConstraints { make in
@@ -79,8 +91,10 @@ class ProfileViewController: UIViewController {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(120)
+            make.top.equalTo(avatarImageView.snp.bottom).offset(35)
             make.left.right.bottom.equalToSuperview()
+            make.bottom.equalToSuperview()
+            make.height.equalTo(1550)
         }
     }
     
@@ -110,7 +124,7 @@ class ProfileViewController: UIViewController {
     }
 }
 
-extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
+extension ProfileView: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         5
     }
@@ -165,7 +179,7 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         UIView()
     }
-    
+
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         160
     }

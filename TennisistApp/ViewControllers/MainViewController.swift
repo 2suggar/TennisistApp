@@ -8,13 +8,13 @@
 import UIKit
 import SnapKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, UIScrollViewDelegate {
 
     private let backgroundImageView = UIImageView()
     
-    private let VC = ProfileViewController()
+    let scrollView = UIScrollView()
     
-    private let transition = PanelTransition()
+    let profileView = ProfileView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +23,6 @@ class MainViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        VC.transitioningDelegate = transition
-        VC.modalPresentationStyle = .custom
-
-        present(VC, animated: true)
     }
     
     // MARK: Private functions
@@ -36,6 +31,14 @@ class MainViewController: UIViewController {
         backgroundImageView.contentMode = .scaleAspectFill
         
         view.addSubview(backgroundImageView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(profileView)
+        
+        scrollView.delegate = self
+        scrollView.isPagingEnabled = true
+        
+        scrollView.contentSize = CGSize(width: view.bounds.width, height: 1582)
+        
         
         setupConstraints()
     }
@@ -44,36 +47,15 @@ class MainViewController: UIViewController {
         backgroundImageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
-    }
-}
-
-
-class PanelTransition: NSObject, UIViewControllerTransitioningDelegate {
-    func presentationController(forPresented presented: UIViewController, presenting: UIViewController?, source: UIViewController) -> UIPresentationController? {
-        PresentationController(presentedViewController: presented,presenting: presenting ?? source)
-    }
-}
-
-
-class PresentationController: UIPresentationController {
-    override var frameOfPresentedViewInContainerView: CGRect {
-        let bounds = containerView!.bounds
-        let height = bounds.height * 0.75
-        let y = bounds.height * 0.25
-        return CGRect(x: 0,
-                      y: y,
-                      width: bounds.width,
-                      height: height)
-    }
-    
-    
-    override func presentationTransitionWillBegin() {
-        super.presentationTransitionWillBegin()
-        containerView?.addSubview(presentedView!)
-    }
-    
-    override func containerViewDidLayoutSubviews() {
-        super.containerViewDidLayoutSubviews()
-        presentedView?.frame = frameOfPresentedViewInContainerView
+        
+        scrollView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        profileView.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(70)
+            make.width.equalTo(self.view.bounds.width)
+            make.bottom.equalToSuperview().offset(60)
+        }
     }
 }

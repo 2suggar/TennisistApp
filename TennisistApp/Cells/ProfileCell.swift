@@ -54,9 +54,9 @@ class ProfileCell: UITableViewCell {
     }
     
     private func setupUI() {
-        addSubview(nameLabel)
-        addSubview(locationLabel)
-        addSubview(infoLabel)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(locationLabel)
+        contentView.addSubview(infoLabel)
         setupConstraints()
     }
     

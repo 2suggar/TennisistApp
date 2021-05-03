@@ -58,10 +58,10 @@ class ReviewCell: UITableViewCell {
     }
     
     private func setupUI() {
-        addSubview(avatarImageView)
-        addSubview(nameLabel)
-        addSubview(ratingLabel)
-        addSubview(infoLabel)
+        contentView.addSubview(avatarImageView)
+        contentView.addSubview(nameLabel)
+        contentView.addSubview(ratingLabel)
+        contentView.addSubview(infoLabel)
         setupConstraints()
     }
     

@@ -132,10 +132,10 @@
 		2964DA40263AF60500688174 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				29E9BC65264087DF004F5345 /* CollectionViewCells */,
 				2964DA49263B1D7000688174 /* ProfileCell.swift */,
 				2964DA4C263B41DE00688174 /* ReviewCell.swift */,
 				2964DA4F263B480900688174 /* StudentsCell.swift */,
-				2964DA52263B488200688174 /* StudentCollectionViewCell.swift */,
 				297A0037263BF34F00C54A74 /* ConnectionCell.swift */,
 				299BD933263C056B001108DF /* MainInfoCell.swift */,
 				299BD94C263EBA46001108DF /* SeparatorCell.swift */,
@@ -159,6 +159,14 @@
 				299BD946263E5FC8001108DF /* RatingView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		29E9BC65264087DF004F5345 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2964DA52263B488200688174 /* StudentCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 		64F82E9C33D62A7D3A070CED /* Pods */ = {

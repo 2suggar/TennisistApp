@@ -25,7 +25,7 @@ class SeparatorCell: UITableViewCell {
     }
     
     private func setupUI() {
-        addSubview(separatorView)
+        contentView.addSubview(separatorView)
         backgroundColor = .clear
         setupConstraints()
     }

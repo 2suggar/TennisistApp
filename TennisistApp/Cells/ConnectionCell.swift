@@ -33,7 +33,7 @@ class ConnectionCell: UITableViewCell {
         return view
     }()
     
-    private let addFriendView: UIView = {
+    private lazy var addFriendView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = Const.radius
         view.backgroundColor = UIColor(red: 58/255.0, green: 58/255.0, blue: 67/255.0, alpha: 1)
@@ -47,6 +47,8 @@ class ConnectionCell: UITableViewCell {
             make.height.equalTo(53)
             make.width.equalTo(51)
         }
+        
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(addFriendTapped)))
         
         return view
     }()
@@ -86,10 +88,14 @@ class ConnectionCell: UITableViewCell {
     }
     
     private func setupUI() {
-        addSubview(background)
+        contentView.addSubview(background)
         background.addSubview(stackView)
-        stackView.addArrangedSubview(itemViewBuilder("Сообщения"))
-        stackView.addArrangedSubview(itemViewBuilder("Забронировать"))
+        let messageView = itemViewBuilder("Сообщения")
+        let reserveView = itemViewBuilder("Забронировать")
+        messageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(messageTapped)))
+        reserveView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(reserveTapped)))
+        stackView.addArrangedSubview(messageView)
+        stackView.addArrangedSubview(reserveView)
         stackView.addArrangedSubview(addFriendView)
         
         setupConstraints()
@@ -109,6 +115,21 @@ class ConnectionCell: UITableViewCell {
             make.right.lessThanOrEqualToSuperview().inset(12)
             make.center.equalToSuperview()
         }
+    }
+    
+    @objc
+    private func addFriendTapped() {
+        print("Tapped: add friend button")
+    }
+    
+    @objc
+    private func messageTapped() {
+        print("Tapped: send message button")
+    }
+    
+    @objc
+    private func reserveTapped() {
+        print("Tapped: reserve button")
     }
 
 }

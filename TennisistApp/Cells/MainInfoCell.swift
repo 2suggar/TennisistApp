@@ -70,7 +70,7 @@ class MainInfoCell: UITableViewCell {
     }
     
     private func setupUI() {
-        addSubview(finalStackView)
+        contentView.addSubview(finalStackView)
         backgroundColor = .clear
         
         setupConstraints()

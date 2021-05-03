@@ -29,10 +29,14 @@ class CustomHeaderView: UITableViewHeaderFooterView {
         return label
     }()
     
-    private let infoLabel: UILabel = {
+    private lazy var infoLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: .light)
         label.textColor = UIColor(red: 166/255.0, green: 254/255.0, blue: 5/255.0, alpha: 1)
+        
+        label.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(infoTapped))
+        label.addGestureRecognizer(tap)
         
         return label
     }()
@@ -66,5 +70,10 @@ class CustomHeaderView: UITableViewHeaderFooterView {
             make.centerY.equalToSuperview()
             make.left.greaterThanOrEqualTo(nameLabel.snp.right).offset(16)
         }
+    }
+    
+    @objc
+    private func infoTapped() {
+        print("Tapped: more info button")
     }
 }

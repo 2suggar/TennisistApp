@@ -38,8 +38,8 @@ class StudentCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupUI() {
-        addSubview(avatarImageView)
-        addSubview(nameLabel)
+        contentView.addSubview(avatarImageView)
+        contentView.addSubview(nameLabel)
         setupConstraints()
     }
     
@@ -52,7 +52,7 @@ class StudentCollectionViewCell: UICollectionViewCell {
         
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(avatarImageView.snp.bottom).offset(13)
-//            make.left.right.equalToSuperview().offset(13)
+            make.left.right.equalToSuperview().inset(13)
             make.bottom.equalToSuperview().inset(13)
         }
     }

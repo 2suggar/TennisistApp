@@ -11,7 +11,7 @@ class StudentsCell: UITableViewCell {
 
     private let collectionView: UICollectionView = {
         let cvLayout = UICollectionViewLayout()
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: cvLayout)
+        let cv = UICollectionView(frame: CGRect(x: 0, y: 0, width: 1000, height: 160), collectionViewLayout: cvLayout)
         cv.allowsSelection = false
         return cv
     }()
@@ -32,14 +32,13 @@ class StudentsCell: UITableViewCell {
     
     private func setupUI() {
         collectionView.backgroundColor = .clear
-        addSubview(collectionView)
+        contentView.addSubview(collectionView)
         setupConstraints()
     }
     
     private func setupConstraints() {
         collectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
-//            make.height.equalTo(200)
         }
     }
 
@@ -47,7 +46,7 @@ class StudentsCell: UITableViewCell {
 
 extension StudentsCell: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        8
+        100
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,6 +54,4 @@ extension StudentsCell: UICollectionViewDataSource, UICollectionViewDelegate {
         cell.backgroundColor = .clear
         return cell
     }
-    
-    
 }
