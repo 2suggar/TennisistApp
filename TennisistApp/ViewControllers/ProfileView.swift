@@ -1,5 +1,5 @@
 //
-//  ProfileViewController.swift
+//  ProfileView.swift
 //  TennisistApp
 //
 //  Created by Ekaterina Akulina on 29.04.2021.

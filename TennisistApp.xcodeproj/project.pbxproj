@@ -14,7 +14,7 @@
 		2964DA2F263AF4E100688174 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2964DA2E263AF4E100688174 /* Preview Assets.xcassets */; };
 		2964DA32263AF4E100688174 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2964DA30263AF4E100688174 /* LaunchScreen.storyboard */; };
 		2964DA42263AF61F00688174 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2964DA41263AF61F00688174 /* MainViewController.swift */; };
-		2964DA47263B033F00688174 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2964DA46263B033F00688174 /* ProfileViewController.swift */; };
+		2964DA47263B033F00688174 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2964DA46263B033F00688174 /* ProfileView.swift */; };
 		2964DA4A263B1D7000688174 /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2964DA49263B1D7000688174 /* ProfileCell.swift */; };
 		2964DA4D263B41DE00688174 /* ReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2964DA4C263B41DE00688174 /* ReviewCell.swift */; };
 		2964DA50263B480900688174 /* StudentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2964DA4F263B480900688174 /* StudentsCell.swift */; };
@@ -42,7 +42,7 @@
 		2964DA31263AF4E100688174 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2964DA33263AF4E100688174 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2964DA41263AF61F00688174 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		2964DA46263B033F00688174 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		2964DA46263B033F00688174 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		2964DA49263B1D7000688174 /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
 		2964DA4C263B41DE00688174 /* ReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewCell.swift; sourceTree = "<group>"; };
 		2964DA4F263B480900688174 /* StudentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentsCell.swift; sourceTree = "<group>"; };
@@ -124,7 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				2964DA41263AF61F00688174 /* MainViewController.swift */,
-				2964DA46263B033F00688174 /* ProfileViewController.swift */,
+				2964DA46263B033F00688174 /* ProfileView.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -294,7 +294,7 @@
 			files = (
 				2964DA26263AF4E000688174 /* AppDelegate.swift in Sources */,
 				2964DA28263AF4E000688174 /* SceneDelegate.swift in Sources */,
-				2964DA47263B033F00688174 /* ProfileViewController.swift in Sources */,
+				2964DA47263B033F00688174 /* ProfileView.swift in Sources */,
 				299BD947263E5FC8001108DF /* RatingView.swift in Sources */,
 				2964DA4A263B1D7000688174 /* ProfileCell.swift in Sources */,
 				299BD938263C0A1C001108DF /* CustomHeaderView.swift in Sources */,
